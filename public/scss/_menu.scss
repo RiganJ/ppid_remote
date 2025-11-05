@@ -1,0 +1,756 @@
+
+//
+// menu.scss
+//
+
+.navbar-custom {
+  background-color: transparent;
+  padding: 18px 0px;
+  width: 100%;
+  border-radius: 0px;
+  z-index: 999;
+  margin-bottom: 0px;
+  transition: all 0.5s ease-in-out;
+  .navbar-brand {
+    margin-right: 0;
+    .logo-light {
+      display: inline-block;
+    }
+    .logo-dark {
+      display: none;
+    }
+  }
+  .navbar-collapse {
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          font-size: 14.5px;
+          color: rgba($white, 0.70);
+          margin: 0 14px;
+          transition: all .5s;
+          position: relative;
+          font-weight: 500;
+          &.active {
+            color: $white;
+            &::before{
+              width: 100%;
+            }
+          }
+          &::before{
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            width: 0px;
+            height: 2px;
+            background-color: $white;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.2s;
+          }
+        }
+      }
+    }
+    
+    // Dropdown toggle styling
+    .dropdown-toggle {
+      position: relative;
+      
+      &::after {
+        border: none;
+        content: '\f0140';
+        font-family: 'Material Design Icons';
+        font-size: 16px;
+        margin-left: 8px;
+        transition: all 0.3s ease;
+        vertical-align: middle;
+      }
+      
+      &[aria-expanded="true"]::after {
+        transform: rotate(180deg);
+        color: $primary;
+      }
+      
+      &:hover::after {
+        color: $primary;
+      }
+    }
+    
+    .nav-btn {
+      padding: 7px 25px;
+      border-radius: 50px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+  }
+  .navbar-toggler {
+    font-size: 24px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    color: $dark;
+    &:focus {
+        box-shadow: 0 0 0 1.25px;
+    }
+  }
+  
+  // Dropdown styling for transparent navbar
+  .dropdown-menu {
+    background: linear-gradient(135deg, rgba($white, 0.98) 0%, rgba($white, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba($primary, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba($primary, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-top: 12px;
+    min-width: 280px;
+    padding: 8px 0;
+    animation: dropdownFadeIn 0.3s ease-out;
+    
+    .dropdown-item {
+      color: $dark;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 1px solid rgba($primary, 0.08);
+      position: relative;
+      overflow: hidden;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, $primary, lighten($primary, 10%));
+        transition: width 0.3s ease;
+        z-index: -1;
+      }
+      
+      &:hover, &:focus {
+        background-color: rgba($primary, 0.08);
+        color: $primary;
+        transform: translateX(4px);
+        box-shadow: 0 2px 8px rgba($primary, 0.2);
+        
+        &::before {
+          width: 4px;
+        }
+        
+        &::after {
+          content: '→';
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-weight: bold;
+          opacity: 0.7;
+        }
+      }
+      
+      &:active {
+        transform: translateX(2px);
+      }
+    }
+  }
+  
+  @keyframes dropdownFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+/*---NAVBAR STICKY--*/
+
+.nav-sticky {
+  &.navbar-custom {
+    margin-top: 0px;
+    padding: 18px 0px;
+    background-color: $white;
+    box-shadow: 0px 3px 10px 0px rgba(38, 107, 193, 0.08);
+  }
+  .navbar-brand {
+    .logo-dark {
+      display: inline-block;
+    }
+    .logo-light {
+      display: none;
+    }
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+          color: rgba($black, 1) !important;
+          &.active {
+            color: rgba($primary, 1) !important;
+          }
+          &:hover {
+            color: $primary !important;
+          }
+          &::before {
+            background-color: $primary !important;
+        }
+      }
+    }
+    
+    // Dropdown toggle styling for sticky navbar
+    .dropdown-toggle {
+      &::after {
+        color: rgba($black, 0.7);
+      }
+      
+      &[aria-expanded="true"]::after {
+        transform: rotate(180deg);
+        color: $primary;
+      }
+      
+      &:hover::after {
+        color: $primary;
+      }
+    }
+  }
+  .nav-btn {
+    background-color: rgba($primary, 1);
+    color: rgba($white, 1);
+  }
+  
+  // Dropdown styling for sticky navbar
+  .dropdown-menu {
+    background: linear-gradient(135deg, $white 0%, rgba($white, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba($primary, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba($primary, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08);
+    margin-top: 12px;
+    min-width: 280px;
+    padding: 8px 0;
+    animation: dropdownFadeIn 0.3s ease-out;
+    
+    .dropdown-item {
+      color: $dark;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 1px solid rgba($primary, 0.08);
+      position: relative;
+      overflow: hidden;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, $primary, lighten($primary, 10%));
+        transition: width 0.3s ease;
+        z-index: -1;
+      }
+      
+      &:hover, &:focus {
+         background-color: rgba($primary, 0.08);
+         color: $primary;
+         transform: translateX(4px);
+         box-shadow: 0 2px 8px rgba($primary, 0.2);
+         
+         &::before {
+           width: 4px;
+         }
+         
+         &::after {
+           content: '→';
+           position: absolute;
+           right: 20px;
+           top: 50%;
+           transform: translateY(-50%);
+           font-weight: bold;
+           opacity: 0.7;
+         }
+       }
+      
+      &:active {
+        transform: translateX(2px);
+      }
+    }
+  }
+}
+
+
+.modal {
+  .modal-dialog {
+    .modal-content {
+      .modal-close {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        z-index: 2;
+      }
+      .modal-body {
+        .modal-title {
+          font-weight: 600;
+        }
+      }
+      .modal-footer {
+        .footer-text {
+          margin-bottom: 2px;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) { 
+  .navbar-custom {
+    padding: 18px 0px;
+    background-color: rgba($white, 1);
+    .navbar-brand {
+      margin-left: 14px;
+      .logo-dark {
+        display: inline-block !important;
+      }
+      .logo-light {
+        display: none !important;
+      }
+    }
+    .nav-item {
+      .nav-link {
+        display: inline-block;
+        color: rgba($black, 1) !important;
+        &.active {
+          color: $primary;
+        }
+      }
+    }
+  }
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+          color: rgba($black, 1) !important;
+          &.active {
+            color: rgba($primary, 1) !important;
+          }
+          &:hover {
+            color: $primary !important;
+          }
+          &::before {
+            background-color: $primary !important;
+        }
+      }
+    }
+  }
+  .nav-btn {
+    background-color: rgba($primary, 1) !important;
+    color: rgba($white, 1) !important;
+  }
+  
+  // Mobile dropdown styling
+  .dropdown-menu {
+    background: linear-gradient(135deg, $white 0%, rgba($white, 0.98) 100%);
+    border: 2px solid rgba($primary, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 6px 24px rgba($primary, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    padding: 6px 0;
+    animation: dropdownFadeIn 0.3s ease-out;
+    
+    .dropdown-item {
+      color: $dark;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 1px solid rgba($primary, 0.08);
+      position: relative;
+      overflow: hidden;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, $primary, lighten($primary, 10%));
+        transition: width 0.3s ease;
+        z-index: -1;
+      }
+      
+      &:hover, &:focus {
+         background-color: rgba($primary, 0.08);
+         color: $primary;
+         transform: translateX(3px);
+         box-shadow: 0 2px 6px rgba($primary, 0.15);
+         
+         &::before {
+           width: 3px;
+         }
+         
+         &::after {
+           content: '→';
+           position: absolute;
+           right: 15px;
+           top: 50%;
+           transform: translateY(-50%);
+           font-weight: bold;
+           opacity: 0.7;
+         }
+       }
+      
+      &:active {
+        transform: translateX(1px);
+      }
+    }
+  }
+}
+
+//
+/********************* Enhanced Dropdown Animations & Responsive Behavior ************************/
+//
+
+// Advanced keyframe animations
+@keyframes dropdownSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px) translateX(-10px) scale(0.9);
+    filter: blur(2px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-5px) translateX(-3px) scale(0.95);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes dropdownSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    filter: blur(1px);
+  }
+}
+
+@keyframes slideUpFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// Enhanced dropdown styling with better animations
+.navbar-custom .dropdown-menu {
+  animation: dropdownSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: top center;
+  
+  &.hiding {
+    animation: dropdownSlideOut 0.3s ease-out forwards;
+  }
+  
+  .dropdown-item {
+    position: relative;
+    overflow: hidden;
+    
+    // Shimmer effect on hover
+    &::before {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba($primary, 0.1),
+        transparent
+      );
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+    }
+    
+    // Enhanced ripple effect container
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, transparent 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    &:hover {
+      animation: pulse 0.6s ease-in-out;
+      
+      &::before {
+        animation-duration: 1s;
+      }
+    }
+  }
+}
+
+// Sticky navbar dropdown enhancements
+.nav-sticky .dropdown-menu {
+  animation: dropdownSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &.hiding {
+    animation: dropdownSlideOut 0.3s ease-out forwards;
+  }
+  
+  .dropdown-item {
+    &:hover {
+      animation: pulse 0.6s ease-in-out;
+    }
+  }
+}
+
+// Enhanced responsive behavior
+@media (max-width: 1200px) {
+  .navbar-custom .dropdown-menu {
+    min-width: 260px;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-custom .dropdown-menu {
+    min-width: 240px;
+    margin-top: 6px;
+    
+    .dropdown-item {
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-custom .dropdown-menu {
+    position: fixed !important;
+    top: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100vw - 40px);
+    max-width: 350px;
+    bottom: 20px;
+    margin: 0;
+    border-radius: 16px;
+    animation: slideUpFromBottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba($primary, 0.1);
+    backdrop-filter: blur(20px);
+    
+    &.hiding {
+      animation: slideUpFromBottom 0.3s ease-out reverse forwards;
+    }
+    
+    .dropdown-item {
+      padding: 16px 24px;
+      font-size: 15px;
+      border-radius: 8px;
+      margin: 4px 8px;
+      
+      &:hover, &:focus {
+        transform: scale(1.02);
+        background: linear-gradient(135deg, rgba($primary, 0.1), rgba($primary, 0.05));
+      }
+      
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+    
+    // Add close indicator for mobile
+    &::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 4px;
+      background: rgba($primary, 0.3);
+      border-radius: 2px;
+    }
+  }
+  
+  .nav-sticky .dropdown-menu {
+    position: fixed !important;
+    top: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100vw - 40px);
+    max-width: 350px;
+    bottom: 20px;
+    margin: 0;
+    border-radius: 16px;
+    animation: slideUpFromBottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    &.hiding {
+      animation: slideUpFromBottom 0.3s ease-out reverse forwards;
+    }
+    
+    .dropdown-item {
+      padding: 16px 24px;
+      font-size: 15px;
+      border-radius: 8px;
+      margin: 4px 8px;
+      
+      &:hover, &:focus {
+        transform: scale(1.02);
+      }
+      
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 4px;
+      background: rgba($primary, 0.3);
+      border-radius: 2px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-custom .dropdown-menu,
+  .nav-sticky .dropdown-menu {
+    width: calc(100vw - 20px);
+    max-width: none;
+    bottom: 10px;
+    
+    .dropdown-item {
+      padding: 18px 20px;
+      font-size: 16px;
+      
+      &::after {
+        font-size: 18px;
+        right: 20px;
+      }
+    }
+  }
+}
+
+// Enhanced accessibility and focus states
+.dropdown-item:focus {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+  background-color: rgba($primary, 0.1) !important;
+}
+
+// Smooth transitions for all states
+.dropdown-menu {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dropdown-item {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+// Loading state for dynamic content
+.dropdown-item.loading {
+  position: relative;
+  color: transparent !important;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba($primary, 0.3);
+    border-top: 2px solid $primary;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+// Dark mode support (future-proofing)
+@media (prefers-color-scheme: dark) {
+  .navbar-custom .dropdown-menu {
+    background: linear-gradient(135deg, rgba($dark, 0.98) 0%, rgba($dark, 0.95) 100%);
+    border-color: rgba($primary, 0.3);
+    
+    .dropdown-item {
+      color: $white;
+      border-bottom-color: rgba($primary, 0.15);
+      
+      &:hover, &:focus {
+        background-color: rgba($primary, 0.15);
+        color: $white;
+      }
+    }
+  }
+}

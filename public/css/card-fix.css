@@ -1,0 +1,92 @@
+/* Custom CSS untuk memperbaiki alignment dan ukuran card PPID */
+
+/* Container untuk card dengan grid layout */
+.ppid-cards-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1.5rem !important;
+    align-items: stretch !important;
+}
+
+/* Responsive grid untuk mobile */
+@media (max-width: 768px) {
+    .ppid-cards-container {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+
+/* Card wrapper untuk memastikan tinggi yang sama */
+.ppid-card-wrapper {
+    display: flex !important;
+    width: 100% !important;
+}
+
+/* Feature card dengan tinggi minimum yang sama */
+.ppid-feature-card {
+    width: 100% !important;
+    min-height: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: white !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(255, 165, 0, 0.3) !important;
+    border: 1px solid rgba(0, 0, 0, 0.125) !important;
+    transition: all 0.3s ease !important;
+}
+
+.ppid-feature-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(255, 165, 0, 0.5) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Content area yang akan mengambil ruang yang tersedia */
+.ppid-card-content {
+    flex: 1 !important;
+    display: flex !important;
+}
+
+/* Icon container */
+.ppid-icon-container {
+    flex-shrink: 0 !important;
+    width: 60px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding-top: 0.25rem !important;
+}
+
+/* Text content area */
+.ppid-text-content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Content body yang akan mengambil ruang yang tersedia */
+.ppid-content-body {
+    flex: 1 !important;
+}
+
+/* Button container yang selalu di bawah */
+.ppid-button-container {
+    margin-top: auto !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Styling untuk list items */
+.ppid-feature-card ul li {
+    padding: 0.25rem 0 !important;
+    line-height: 1.4 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .ppid-feature-card {
+        min-height: 280px !important;
+    }
+    
+    .ppid-icon-container {
+        width: 50px !important;
+    }
+}

@@ -1,0 +1,463 @@
+/* ===== PPID FOOTER DARK DESIGN - GAMBAR 3 ===== */
+
+/* Main Footer Container */
+.ppid-footer-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #ffffff;
+    padding: 3rem 0 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Container Full-Width Override untuk Footer */
+.ppid-footer-dark .container {
+    max-width: 100% !important;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+@media (min-width: 1400px) {
+    .ppid-footer-dark .container {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .ppid-footer-dark .container {
+        padding-left: 8rem;
+        padding-right: 8rem;
+    }
+}
+
+.ppid-footer-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff9000, #e6800a, #ff9000);
+    z-index: 1;
+}
+
+/* Footer Logo Section */
+.footer-logo-section {
+    margin-bottom: 1.5rem;
+    padding-right: 1rem;
+}
+
+.logo-hierarchy {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-content: flex-start;
+}
+
+/* Logo Hierarchy: UFDK Main, PPID Secondary */
+.logo-ufdk-main {
+    height: 70px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.3s ease;
+    filter: brightness(1.1);
+}
+
+.logo-ppid-secondary {
+    height: 60px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.3s ease;
+    filter: brightness(1.1);
+}
+
+.logo-hierarchy:hover .logo-ufdk-main,
+.logo-hierarchy:hover .logo-ppid-secondary {
+    transform: scale(1.05);
+}
+
+/* Institution Info */
+.institution-info .footer-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.institution-info .footer-subtitle {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Footer Headings */
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff9000;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(255, 144, 0, 0.3);
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #ff9000;
+}
+
+/* Address Section - Layout 4 Kolom */
+.footer-contact-section {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.address-content .address-compact {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.address-content .address-compact strong {
+    color: #ff9000;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.address-detail {
+    font-size: 0.85rem;
+    color: #d0d0d0;
+    line-height: 1.4;
+    margin-left: 1.5rem;
+}
+
+/* Legacy Address Section - untuk backward compatibility */
+.footer-address-section {
+    margin-bottom: 1.5rem;
+}
+
+.address-content .address-full {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Contact Info */
+.contact-info {
+    margin-top: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+.contact-icon {
+    color: #ff9000;
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Links Section */
+.footer-links-section {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.footer-link::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #ff9000;
+    font-size: 0.7rem;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ff9000;
+    text-decoration: none;
+    transform: translateX(5px);
+}
+
+.footer-link:hover::before {
+    transform: translateX(3px);
+}
+
+/* Service Hours Section */
+.footer-service-section {
+    margin-bottom: 1.5rem;
+    padding-left: 0.5rem;
+}
+
+.service-hours {
+    background: rgba(255, 144, 0, 0.1);
+    border: 1px solid rgba(255, 144, 0, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.service-day {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ff9000;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.service-time {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.service-note {
+    font-size: 0.8rem;
+    color: #c0c0c0;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* Copyright Section */
+.ppid-copyright {
+    background: #000000;
+    color: #c0c0c0;
+    padding: 1rem 0;
+    border-top: 1px solid #333333;
+}
+
+.copyright-text {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* Responsive Design - Layout 4 Kolom */
+@media (max-width: 991.98px) {
+    .ppid-footer-dark {
+        padding: 2.5rem 0 1.5rem 0;
+    }
+    
+    /* Tablet: 2x2 Grid - Left Aligned */
+    .footer-logo-section,
+    .footer-contact-section,
+    .footer-links-section,
+    .footer-service-section {
+        text-align: left;
+    }
+    
+    .logo-hierarchy {
+        justify-content: flex-start;
+    }
+    
+    .institution-info {
+        text-align: left;
+    }
+    
+    .contact-item {
+        justify-content: flex-start;
+    }
+    
+    .address-detail {
+        margin-left: 1.5rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .ppid-footer-dark {
+        padding: 2rem 0 1rem 0;
+    }
+    
+    /* Mobile: Single Column Stack */
+    .logo-hierarchy {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+ @media (max-width: 768px) {
+    .logo-ufdk-main {
+        height: 50px;
+        max-width: 100px;
+    }
+    
+    .logo-ppid-secondary {
+        height: 42px;
+        max-width: 84px;
+    }
+    
+    .institution-info .footer-title {
+        font-size: 1.25rem;
+    }
+    
+    .institution-info .footer-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .footer-heading {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Address Compact Mobile - Left Aligned */
+     .address-content .address-compact {
+         font-size: 0.85rem;
+         text-align: left;
+     }
+     
+     .address-content .address-compact strong {
+         font-size: 0.8rem;
+         line-height: 1.3;
+         word-wrap: break-word;
+     }
+     
+     .address-detail {
+         font-size: 0.8rem;
+         margin-left: 1.5rem;
+         margin-top: 0.5rem;
+     }
+    
+    /* Legacy support */
+    .address-content .address-full {
+        font-size: 0.9rem;
+    }
+    
+    .service-hours {
+        padding: 0.75rem;
+    }
+    
+    /* Mobile spacing improvements */
+    .footer-contact-section,
+    .footer-links-section,
+    .footer-service-section {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    .logo-ufdk-main,
+    .logo-ppid-secondary,
+    .footer-link {
+        transition: none;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .ppid-footer-dark {
+        background: #000000;
+        border-top: 2px solid #ffffff;
+    }
+    
+    .footer-heading {
+        color: #ffffff;
+        border-bottom-color: #ffffff;
+    }
+    
+    .footer-heading::after {
+        background: #ffffff;
+    }
+    
+    .contact-icon,
+    .footer-link::before,
+    .service-day {
+        color: #ffffff;
+    }
+    
+    .service-hours {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #ffffff;
+    }
+}
+
+/* Focus States for Accessibility */
+.footer-link:focus {
+    outline: 2px solid #ff9000;
+    outline-offset: 2px;
+    background: rgba(255, 144, 0, 0.1);
+    border-radius: 3px;
+}
+
+/* Print Styles */
+@media print {
+    .ppid-footer-dark {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-top: 2px solid #000000;
+    }
+    
+    .footer-heading,
+    .contact-icon,
+    .service-day {
+        color: #000000 !important;
+    }
+    
+    .footer-link {
+        color: #000000 !important;
+    }
+}
+/* Print Styles */
+@media print {
+    .ppid-footer-dark {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-top: 2px solid #000000;
+    }
+    
+    .footer-heading,
+    .contact-icon,
+    .service-day {
+        color: #000000 !important;
+    }
+    
+    .footer-link {
+        color: #000000 !important;
+    }
+}

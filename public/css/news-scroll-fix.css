@@ -1,0 +1,432 @@
+/* ===== NEWS SIDEBAR SCROLL FIXES ===== */
+
+/* Enhanced News Sidebar with Better Scrolling */
+.news-sidebar {
+  flex: 0 0 30%;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  /* Improved max-height calculation */
+  max-height: calc(100vh - 200px);
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #152c5c;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid #ff9000;
+  position: relative;
+  flex-shrink: 0; /* Prevent title from shrinking */
+}
+
+.sidebar-title::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #e6800a;
+}
+
+/* Enhanced News List Container */
+.news-list {
+  flex: 1; /* Take remaining space */
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  margin-right: -8px;
+  position: relative;
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #ff9000 #e9ecef;
+}
+
+/* Enhanced Custom Scrollbar */
+.news-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.news-list::-webkit-scrollbar-track {
+  background: #e9ecef;
+  border-radius: 4px;
+  margin: 4px 0;
+}
+
+.news-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff9000, #e6800a);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.news-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #e6800a, #cc7009);
+  transform: scaleX(1.2);
+}
+
+.news-list::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, #cc7009, #b35f08);
+}
+
+/* Scroll Indicator at Top */
+.scroll-indicator-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(255, 144, 0, 0.1), transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  border-radius: 8px 8px 0 0;
+}
+
+.scroll-indicator-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to top, rgba(255, 144, 0, 0.15), transparent);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+
+.scroll-indicator-bottom::after {
+  content: '⬇ Scroll untuk melihat lebih banyak';
+  font-size: 11px;
+  color: #ff9000;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  animation: scrollPulse 2s infinite;
+}
+
+/* Show/hide scroll indicators based on scroll position */
+.news-list.can-scroll-up .scroll-indicator-top {
+  opacity: 1;
+}
+
+.news-list.can-scroll-down .scroll-indicator-bottom {
+  opacity: 1;
+}
+
+.news-list.at-bottom .scroll-indicator-bottom {
+  opacity: 0;
+}
+
+/* Enhanced News Items */
+.news-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid #e9ecef;
+  position: relative;
+  /* Ensure items don't get cut off */
+  flex-shrink: 0;
+}
+
+.news-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px rgba(255, 144, 0, 0.15);
+  border-color: #ff9000;
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+}
+
+.news-item:last-child {
+  margin-bottom: 20px; /* Extra space at bottom for scroll indicator */
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: rgba(233, 236, 239, 0.5);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.scroll-progress-bar {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(to bottom, #ff9000, #e6800a);
+  border-radius: 2px;
+  transition: height 0.1s ease;
+  position: relative;
+}
+
+.scroll-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -1px;
+  right: -1px;
+  height: 4px;
+  background: #ff9000;
+  border-radius: 2px;
+  box-shadow: 0 0 4px rgba(255, 144, 0, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .news-sidebar {
+    max-height: calc(100vh - 180px);
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 992px) {
+  .news-sidebar {
+    max-height: calc(100vh - 160px);
+    min-height: 400px;
+  }
+  
+  .scroll-indicator-bottom::after {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-sidebar {
+    max-height: 400px;
+    min-height: 350px;
+  }
+  
+  .news-list {
+    padding-right: 6px;
+    margin-right: -6px;
+  }
+  
+  .news-list::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scroll-indicator-bottom::after {
+    content: '⬇ Geser ke bawah';
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 576px) {
+  .news-sidebar {
+    max-height: 350px;
+    min-height: 300px;
+    padding: 1rem;
+  }
+  
+  .scroll-indicator-bottom::after {
+    content: '⬇';
+    font-size: 12px;
+  }
+  
+  .scroll-progress {
+    width: 2px;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .news-list {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y proximity;
+  }
+  
+  .news-item {
+    scroll-snap-align: start;
+  }
+  
+  .news-item:active {
+    background: rgba(255, 144, 0, 0.1);
+    transform: scale(0.98);
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .scroll-indicator-bottom {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+  }
+  
+  .scroll-indicator-bottom::after {
+    color: #000;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 1);
+  }
+  
+  .scroll-progress-bar {
+    background: #000;
+  }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .news-list {
+    scroll-behavior: auto;
+  }
+  
+  .scroll-indicator-bottom::after {
+    animation: none;
+  }
+  
+  .news-item {
+    transition: none;
+  }
+  
+  .scroll-progress-bar {
+    transition: none;
+  }
+}
+
+/* Focus States for Accessibility */
+.news-list:focus {
+  outline: 2px solid #ff9000;
+  outline-offset: -2px;
+}
+
+.news-item:focus {
+  outline: 2px solid #ff9000;
+  outline-offset: 2px;
+}
+
+/* Scroll Pulse Animation */
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(2px);
+  }
+}
+
+/* Enhanced Scroll Indicators */
+.news-list.is-scrolling {
+  box-shadow: inset 0 0 10px rgba(255, 144, 0, 0.1);
+}
+
+.news-list.is-scrolling .news-item {
+  transition: transform 0.1s ease;
+}
+
+/* Improved News Item Hover Effects */
+.news-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.news-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 25px rgba(255, 144, 0, 0.15);
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+}
+
+.news-item:active {
+  transform: translateX(3px) scale(0.98);
+}
+
+/* Scroll Progress Indicator */
+.news-sidebar {
+  position: relative;
+}
+
+.news-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: #e9ecef;
+  z-index: 1;
+  border-radius: 1px;
+}
+
+.news-sidebar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 0%;
+  background: linear-gradient(to bottom, #ff9000, #e6800a);
+  transition: height 0.3s ease;
+  z-index: 2;
+  border-radius: 1px;
+}
+
+/* Mobile Touch Feedback */
+@media (max-width: 768px) {
+  .news-item:active {
+    background: #f8f9fa;
+    transform: scale(0.98);
+  }
+  
+  .scroll-indicator-text {
+    font-size: 0.8rem;
+  }
+  
+  .scroll-indicator-text span {
+    display: none;
+  }
+  
+  .scroll-indicator-text::after {
+    content: 'Geser untuk melihat lebih banyak';
+    font-size: 0.75rem;
+  }
+}
+
+/* Enhanced Focus States for Accessibility */
+.news-item:focus-visible {
+  outline: 3px solid #ff9000;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(255, 144, 0, 0.2);
+}
+
+/* Scroll Hint Animation */
+.scroll-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(255, 144, 0, 0.9);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.news-sidebar:hover .scroll-hint {
+  opacity: 1;
+  transform: translateY(0);
+}

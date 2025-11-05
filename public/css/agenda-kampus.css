@@ -1,0 +1,396 @@
+/* ===== AGENDA KAMPUS MODERN DESIGN ===== */
+
+/* Main Section Styling */
+.agenda-kampus {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Background Pattern */
+.agenda-background-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.03;
+    background-image: 
+        radial-gradient(circle at 20% 20%, #FF6B35 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, #FF6B35 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, #FF6B35 0%, transparent 50%);
+    background-size: 400px 400px, 300px 300px, 500px 500px;
+    background-position: 0 0, 100% 100%, 50% 50%;
+    z-index: 1;
+}
+
+.agenda-kampus::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #FF6B35, #FFA726);
+    border-radius: 50% 20% 50% 20%;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.agenda-kampus::after {
+    content: '';
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #FF6B35, #FF8A65);
+    border-radius: 20% 50% 20% 50%;
+    opacity: 0.08;
+    z-index: 1;
+}
+
+/* Container */
+.agenda-kampus .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header Styling */
+.agenda-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.agenda-header h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.agenda-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #FF6B35, #FFA726);
+    border-radius: 2px;
+}
+
+.agenda-header .university-name {
+    font-size: 1.2rem;
+    color: #FF6B35;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.agenda-header .description {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Agenda Container */
+.agenda-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Agenda List */
+.agenda-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Agenda Item */
+.agenda-item {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.agenda-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #FF6B35, #FFA726);
+    transition: width 0.3s ease;
+}
+
+.agenda-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.15);
+    border-color: rgba(255, 107, 53, 0.2);
+}
+
+.agenda-item:hover::before {
+    width: 8px;
+}
+
+/* Agenda Date */
+.agenda-date {
+    background: linear-gradient(135deg, #FF6B35, #FFA726);
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    min-width: 80px;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.agenda-date .date-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.agenda-date .date-month {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.agenda-date .date-year {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+/* Agenda Content */
+.agenda-content {
+    flex: 1;
+}
+
+.agenda-category {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.agenda-category.akademik {
+    background: rgba(52, 152, 219, 0.1);
+    color: #3498db;
+}
+
+.agenda-category.penelitian {
+    background: rgba(155, 89, 182, 0.1);
+    color: #9b59b6;
+}
+
+.agenda-category.kerjasama {
+    background: rgba(46, 204, 113, 0.1);
+    color: #2ecc71;
+}
+
+.agenda-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.agenda-description {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Agenda Action */
+.agenda-action {
+    display: flex;
+    align-items: center;
+}
+
+.agenda-status {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.agenda-status.upcoming {
+    background: rgba(255, 107, 53, 0.1);
+    color: #FF6B35;
+}
+
+/* Agenda Footer */
+.agenda-footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-view-all {
+    background: linear-gradient(135deg, #FF6B35, #FFA726);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-view-all:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    background: linear-gradient(135deg, #e55a2b, #ff9800);
+}
+
+.btn-view-all i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-view-all:hover i {
+    transform: translateX(3px);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .agenda-kampus {
+        padding: 60px 0;
+    }
+    
+    .agenda-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .agenda-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 25px;
+    }
+    
+    .agenda-date {
+        min-width: auto;
+        width: 100px;
+    }
+    
+    .agenda-content {
+        text-align: left;
+    }
+    
+    .agenda-action {
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .agenda-kampus {
+        padding: 40px 0;
+    }
+    
+    .agenda-header {
+        margin-bottom: 40px;
+    }
+    
+    .agenda-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .agenda-header .university-name {
+        font-size: 1rem;
+    }
+    
+    .agenda-header .description {
+        font-size: 1rem;
+    }
+    
+    .agenda-item {
+        padding: 20px;
+        margin: 0 10px;
+    }
+    
+    .agenda-title {
+        font-size: 1.1rem;
+    }
+    
+    .agenda-description {
+        font-size: 0.9rem;
+    }
+    
+    .btn-view-all {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .agenda-kampus::before,
+    .agenda-kampus::after {
+        display: none;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 375px) {
+    .agenda-item {
+        margin: 0 5px;
+        padding: 15px;
+    }
+    
+    .agenda-date {
+        padding: 15px;
+        width: 80px;
+    }
+    
+    .agenda-date .date-number {
+        font-size: 1.5rem;
+    }
+    
+    .agenda-date .date-month {
+        font-size: 0.8rem;
+    }
+    
+    .agenda-date .date-year {
+        font-size: 0.7rem;
+    }
+}
